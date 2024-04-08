@@ -26,13 +26,13 @@ function addTask() {
         delTask(newTask);       //lorsque le bouton (corebeille) est cliqué la fonction deltask est exéxcuté (ici pour toutes les card qu'on va ajouter )
         alert('Vous avez supprimé l\'élément !'); // ajouter un message pour informer la suppression de la card 
     })
-    majCompteur();
+    majCompteur(); //nb de cars mis à jour 
 }
 
 //fonctuion pour supprimer une card
 function delTask(task) {
     task.remove();
-    majCompteur();
+    majCompteur();  //nb de cars mis à jour 
 }
 
 //fonction qui compte le nombre de card et affiche le resultat
