@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>TODO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Hello JS</title>
 </head>
+
 <body>
     <div id="wrapper">
-
         <h1>Todo list</h1>
         <div id="todo">
-            <div id="count"></div>
+            <div id="count">
+                <h2>Nombre de cards :</h2>
+                <h2 class="compteur"></h2>
+            </div>
             <button id="btn">Add a task</button>
-            <div id="todocards">
-                <textarea class="task" maxlength="200" cols="=20" rows="15">New task</textarea>    <!--textarea =>creé un chapms text, maxlength pour definir longeur max du text -->
-            <span class="delBtn"><i class="fa fa-trash" aria-hiden=true ></i></span>        <!--  span pour cibler et styliser des parties spécifiques (section en ligne )de texte dans un document web -->
-        </div> -
-
-         </div>
-
+            <div id="todoCards">
+                <div class="todoCard">
+                    <textarea class="task" maxlength="200" cols="20" rows="15">
+                        New task
+                    </textarea>
+                    <span class="delBtn"><i class="fas fa-trash" aria-hidden="true"></i> </span>
+                </div>
+            </div>
+        </div>
     </div>
-     <script src="js/script.js"></script>                                           <!--  pour lier au fichier js -->
+    <script src="./js/script.js"></script>
 </body>
+
 </html>
 
 

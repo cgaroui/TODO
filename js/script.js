@@ -1,57 +1,41 @@
 
-// //ajout ecouteur d'évenement sur le bouton pour appler une fonction ajout:
+// selection des élèment dans le DOM
 const addBtn = document.querySelector('#btn');
-addBtn.addEventListener('click',addTask);
+const taskCard = document.querySelector('.todoCard');
+const taskContainer = document.querySelector('#todoCards');
+const delBtn = document.querySelector('.delBtn');
+const compteur = document.querySelector('.compteur');
 
-//creation de la fonction ajout :
-
-const taskcard = document.querySelector('.todoCards');
-const tasksContainer = document.querySelector("#todoCards");
+majCompteur();  //initialisation du compteur à 0
 
 
-function addTask(){
-    const newTask = taskcard.cloneNode(true);               //on clone l'élèment newTask sachant que la card a été créé en ML
-    const newTextArea =newTask.querySelector('.task');      //on définit la valeur de la zone de texte à fin qu'elle ne soit pas vide 
-    newTextArea.value = "new Task"                         // ___________________________
-    tasksContainer.appendChild(newTask)                     //on ajoute cette nouvelle card dans le DOM ( à la fin de la liste des enfants de l'élément tasksContainer)
-    tasksContainer.appendChild(newTask);
-    
-}
-
-//On ajoute un écouteur d’évènement sur le bouton pour appeler une fonction suppression:
-const delBtn =document.querySelector('.delBtn');
-delBtn.addEventListener('click',function(){
-    deleteTask(taskcard);
+addBtn.addEventListener('click', addTask);  //lorsqu'on clique sur addBtn , la fonction addTask est déclenché et son code exécuté 
+delBtn.addEventListener('click', function () {
+    delTask(taskCard);                      // lorsqu'on clique sur le bouton (corebeille), la fonction delTask est appelé et son code est exécuté
 });
 
-//on crée la fonctuiion supprimer 
+//fonction pour ajouter une nouvelle card
+function addTask() {
+    const newTask = taskCard.cloneNode(true);       //crée une copie de taskcard 
+    const newTextArea = newTask.querySelector('.task'); 
+    const newDelBtn = newTask.querySelector('.delBtn');
+    newTextArea.value = 'New Task';         //texte dans la nvl card 
+    taskContainer.appendChild(newTask);     //ajoute la nouvelle card créé avc son contenue en fin de de liste des cards stocké dans le container 
 
-function deleteTask(task){
+    newDelBtn.addEventListener('click', function () {
+        delTask(newTask);       //lorsque le bouton (corebeille) est cliqué la fonction deltask est exéxcuté (ici pour toutes les card qu'on va ajouter )
+        alert('Vous avez supprimé l\'élément !'); // ajouter un message pour informer la suppression de la card 
+    })
+    majCompteur();
+}
+
+//fonctuion pour supprimer une card
+function delTask(task) {
     task.remove();
+    majCompteur();
 }
 
-
-
-
-
-
-
-//On ajoute l’écouteur d’évènement sur l’élément cloné dans la fonction ajout, afin de faire fonctionner le bouton suppression sur les nouvelles cards
-function addTask(){
-    const newTask = taskcard.cloneNode(true)
-    const newDelBtn = newTask.querySelector('.delBtn')
-    const newTextArea = newTask.querySelector('.task')
-    newTextArea.value = "new Task"
-    newDelBtn.addEventListener('click',function(){
-        deleteTask(newTask);
-});
-    tasksContainer.appendChild(newTask)
-    updateCount();
-
+//fonction qui compte le nombre de card et affiche le resultat
+function majCompteur() {
+    compteur.innerText = taskContainer.children.length; // Affiche le nombre total de tâches dans le conteneur
 }
-
-
-
-
-
-
