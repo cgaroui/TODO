@@ -37,5 +37,5 @@ function delTask(task) {
 
 //fonction qui compte le nombre de card et affiche le resultat
 function majCompteur() {
-    compteur.innerText = taskContainer.children.length; // Affiche le nombre total de tâches dans le conteneur
+    compteur.innerText = taskContainer.children.length; // Affiche le nombre total de cards dans le conteneur (grace à la fonction children.lenth qui compte les enfant )
 }
